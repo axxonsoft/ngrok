@@ -8,7 +8,7 @@ deps: assets
 	go get -tags '$(BUILDTAGS)' -d -v ngrok/...
 
 server: deps
-	go install -tags '$(BUILDTAGS)' ngrok/main/ngrokd
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go install -tags '$(BUILDTAGS)' ngrok/main/ngrokd
 
 fmt:
 	go fmt ngrok/...

@@ -1,10 +1,4 @@
-openssl genrsa -out rootCA.key 2048
-openssl req -x509 -new -nodes -key rootCA.key -subj "/CN=$NGROK_DOMAIN" -days 5000 -out rootCA.pem
-openssl genrsa -out device.key 2048
-openssl req -new -key device.key -subj "/CN=$NGROK_DOMAIN" -out device.csr
-openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000
-
-
+https://gist.github.com/lyoshenka/002b7fbd801d0fd21f2f
 
 
 
@@ -15,11 +9,8 @@ docker build --force-rm=true -t ngrok -f Dockerfile .
 
 docker stop ngrok && docker rm ngrok && \
     docker run -p 4443:4443 -d --name ngrok --net host \
-    -e TLS_CERT="`awk 1 ORS='\\n' assets/server/tls/device.crt`" \
-    -e TLS_KEY="`awk 1 ORS='\\n' assets/server/tls/device.key`" \
-    -e CA_CERT="`awk 1 ORS='\\n' assets/client/tls/ngrokroot.crt`" \
     -e DOMAIN="ngrok.me" \
     ngrok
 
 
-./bin/ngrok -config=bin/debug.yml -log=bin/ngrok.log start test
+./bin/ngrok -config=tools/debug.yml -log=bin/ngrok.log start test

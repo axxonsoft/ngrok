@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-/build.sh
-
 if [ "${TLS_KEY}" == "**None**" ]; then
     echo "Please specify TLS_KEY"
     exit 1
