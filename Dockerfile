@@ -18,4 +18,4 @@ EXPOSE 4443
 EXPOSE 80
 EXPOSE 443
 
-CMD /ngrok/bin/ngrokd -tlsKey=/server.key -tlsCrt=/server.crt -domain=\"ngrok.me\" -httpAddr=${HTTP_ADDR} -httpsAddr=${HTTPS_ADDR} -tunnelAddr=${TUNNEL_ADDR}
+CMD /ngrok/bin/ngrokd -tlsKey=/server.key -tlsCrt=/server.crt -domain=${DOMAIN} -httpAddr=${HTTP_ADDR} -httpsAddr=${HTTPS_ADDR} -tunnelAddr=${TUNNEL_ADDR}
