@@ -4,7 +4,7 @@ https://gist.github.com/lyoshenka/002b7fbd801d0fd21f2f
 
 docker build --force-rm=true -t ngrok -f Dockerfile .
 
-
+docker save -o "target/ngrok.img" "ngrok"
 
 
 docker stop ngrok && docker rm ngrok && \

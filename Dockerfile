@@ -10,12 +10,12 @@ COPY tools/server.key /server.key
 
 ENV DOMAIN **None**
 ENV TUNNEL_ADDR :4443
-ENV HTTP_ADDR :80
-ENV HTTPS_ADDR :443
+ENV HTTP_ADDR :10080
+ENV HTTPS_ADDR :10443
 
 VOLUME ["/ngrok/bin"]
 EXPOSE 4443
-EXPOSE 80
-EXPOSE 443
+EXPOSE 10080
+EXPOSE 10443
 
 CMD /ngrok/bin/ngrokd -tlsKey=/server.key -tlsCrt=/server.crt -domain=${DOMAIN} -httpAddr=${HTTP_ADDR} -httpsAddr=${HTTPS_ADDR} -tunnelAddr=${TUNNEL_ADDR}
