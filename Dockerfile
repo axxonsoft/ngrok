@@ -4,8 +4,8 @@ RUN apk add --update ca-certificates
 
 ADD bin/linux_amd64/ngrokd /ngrok/bin/
 
-COPY tools/ngrok.me.crt /server.crt
-COPY tools/ngrok.me.key /server.key
+COPY tools/server.crt /server.crt
+COPY tools/server.key /server.key
 
 
 ENV DOMAIN **None**
