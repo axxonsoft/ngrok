@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-NGROK_DOMAIN="panoland.ru"
+NGROK_DOMAIN="ngrok.me"
 
 openssl genrsa -out rootCA.key 2048
 openssl req -x509 -new -nodes -key rootCA.key -subj "/CN=$NGROK_DOMAIN" -days 5000 -out rootCA.pem

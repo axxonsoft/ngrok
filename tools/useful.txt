@@ -13,4 +13,4 @@ docker stop ngrok && docker rm ngrok && \
     ngrok
 
 
-./bin/ngrok -config=tools/debug.yml -log=bin/ngrok.log start test
+./bin/ngrok -config=tools/debug.yml -log=tools/ngrok.log start test
